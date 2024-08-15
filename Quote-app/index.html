@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <title>Qoute of the day</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="quote-box">
+        <h2>Qoute of the day</h2>
+        <blockquote id="quote">Loading...</blockquote>
+        <span id="author">Loading...</span>
+        <div>
+            <button onclick="getquote(api_url)" >New Quute</button>
+            <button onclick="tweet()"><img src="images/X_icon_2.svg" width="20" height="20">Tweet</button>
+        </div>
+    </div>
+  <script>
+    const quote = document.getElementById("quote");
+    const author = document.getElementById("author");
+
+    const api_url = "https://api.quotable.io/random";
+
+    async function getquote(url){
+        const response = await fetch(url);
+        var data = await response.json();
+        quote.innerHTML = data.content;
+        author.innerHTML = data.author;
+    }
+    getquote(api_url);
+
+    function tweet(){
+        window.open("https://twitter.com/share?ref_src=twsrc%5Etfw"+quote.innerHTML+"---- by"+author.innerHTML,
+            "Tweet Window","width=600,height=300"
+        );
+    }
+  </script>
+</body>
+</html>
