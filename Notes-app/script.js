@@ -39,4 +39,4 @@ document.addEventListener("keydown", Event =>{
         document.execCommand("insertLineBreak");
         event.preventDefault();
     }
-}
+});
