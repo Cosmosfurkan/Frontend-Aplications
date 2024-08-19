@@ -23,7 +23,7 @@ function playPause() {
 if (song.play()){
     setInterval(() => {
         progress.value = song.currentTime;
-    },500);
+    },500);/* 500ms */
 }
 
 progress.onchange = function(){
@@ -31,5 +31,5 @@ progress.onchange = function(){
     song.currentTime = progress.value;
     ctrIcon.classList.add("fa-pause");
     ctrIcon.classList.remove("fa-play");
-}
+}/* müzüğin değişşimini yansıtıyor */
 
